@@ -178,3 +178,4 @@ swanlog/
 generated_predictions.jsonl
 predictions_score.json
 .fuse_hi*
+data/custom_configs/*.json
