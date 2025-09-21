@@ -1,0 +1,739 @@
+.
+├── assets
+│   ├── logo.png
+│   ├── sponsors
+│   │   ├── serpapi.svg
+│   │   └── warp.jpg
+│   ├── thirdparty
+│   │   ├── colab.svg
+│   │   ├── discord.svg
+│   │   ├── dsw.svg
+│   │   ├── lab4ai.svg
+│   │   └── online.svg
+│   └── wechat
+│       ├── lab4ai.jpg
+│       ├── main.jpg
+│       ├── npu.jpg
+│       └── online.jpg
+├── cache
+│   ├── ds_z2_config.json
+│   ├── ds_z2_offload_config.json
+│   ├── ds_z3_config.json
+│   ├── ds_z3_offload_config.json
+│   └── user_config.yaml
+├── CITATION.cff
+├── data
+│   ├── alpaca_en_demo.json
+│   ├── alpaca_zh_demo.json
+│   ├── belle_multiturn
+│   │   └── belle_multiturn.py
+│   ├── c4_demo.jsonl
+│   ├── custom_configs
+│   │   ├── qwen_llava_v1_5_mix665k_100k.json
+│   │   ├── qwen_llava_v1_5_mix665k_200k.json
+│   │   ├── qwen_occlusion_vqa_llava_format_20k.json
+│   │   └── qwen_occlusion_vqa_llava_format.json
+│   ├── dataset_info.json
+│   ├── dpo_en_demo.json
+│   ├── dpo_zh_demo.json
+│   ├── glaive_toolcall_en_demo.json
+│   ├── glaive_toolcall_zh_demo.json
+│   ├── hh_rlhf_en
+│   │   └── hh_rlhf_en.py
+│   ├── identity.json
+│   ├── kto_en_demo.json
+│   ├── mllm_audio_demo.json
+│   ├── mllm_demo_data
+│   │   ├── 1.jpg
+│   │   ├── 1.mp3
+│   │   ├── 1.mp4
+│   │   ├── 2.avi
+│   │   ├── 2.jpg
+│   │   ├── 2.wav
+│   │   ├── 3.flac
+│   │   ├── 3.jpg
+│   │   ├── 3.mp4
+│   │   ├── 4.mp3
+│   │   └── 4.mp4
+│   ├── mllm_demo.json
+│   ├── mllm_video_audio_demo.json
+│   ├── mllm_video_demo.json
+│   ├── po_curator_training_set_fixed_binary_bg_qwen.json
+│   ├── po_curator_training_set_fixed_binary_qwen.json
+│   ├── README.md
+│   ├── README_zh.md
+│   ├── ultra_chat
+│   │   └── ultra_chat.py
+│   └── wiki_demo.txt
+├── docker
+│   ├── docker-cuda
+│   │   ├── docker-compose.yml
+│   │   ├── Dockerfile
+│   │   ├── Dockerfile.base
+│   │   └── README.md
+│   ├── docker-npu
+│   │   ├── docker-compose.yml
+│   │   └── Dockerfile
+│   └── docker-rocm
+│       ├── docker-compose.yml
+│       └── Dockerfile
+├── evaluation
+│   ├── ceval
+│   │   ├── ceval.py
+│   │   ├── ceval.zip
+│   │   └── mapping.json
+│   ├── cmmlu
+│   │   ├── cmmlu.py
+│   │   ├── cmmlu.zip
+│   │   └── mapping.json
+│   └── mmlu
+│       ├── mapping.json
+│       ├── mmlu.py
+│       └── mmlu.zip
+├── examples
+│   ├── accelerate
+│   │   ├── fsdp_config_offload.yaml
+│   │   └── fsdp_config.yaml
+│   ├── deepspeed
+│   │   ├── ds_z0_config.json
+│   │   ├── ds_z2_config.json
+│   │   ├── ds_z2_offload_config.json
+│   │   ├── ds_z3_config.json
+│   │   └── ds_z3_offload_config.json
+│   ├── extras
+│   │   ├── adam_mini
+│   │   │   └── qwen2_full_sft.yaml
+│   │   ├── apollo
+│   │   │   └── llama3_full_sft.yaml
+│   │   ├── badam
+│   │   │   └── llama3_full_sft.yaml
+│   │   ├── dft
+│   │   │   └── qwen2_full_sft.yaml
+│   │   ├── fsdp_qlora
+│   │   │   ├── llama3_lora_sft.yaml
+│   │   │   └── train.sh
+│   │   ├── galore
+│   │   │   └── llama3_full_sft.yaml
+│   │   ├── llama_pro
+│   │   │   ├── expand.sh
+│   │   │   └── llama3_freeze_sft.yaml
+│   │   ├── loraplus
+│   │   │   └── llama3_lora_sft.yaml
+│   │   ├── mod
+│   │   │   └── llama3_full_sft.yaml
+│   │   ├── muon
+│   │   │   └── qwen2_full_sft.yaml
+│   │   ├── nlg_eval
+│   │   │   └── llama3_lora_predict.yaml
+│   │   ├── oft
+│   │   │   ├── llama3_oft_sft.yaml
+│   │   │   └── qwen2_5vl_oft_sft.yaml
+│   │   ├── pissa
+│   │   │   ├── init.sh
+│   │   │   └── llama3_lora_sft.yaml
+│   │   └── qoft
+│   │       ├── llama3_oft_sft_awq.yaml
+│   │       ├── llama3_oft_sft_bnb_npu.yaml
+│   │       └── llama3_oft_sft_gptq.yaml
+│   ├── inference
+│   │   ├── llama3_full_sft.yaml
+│   │   ├── llama3_lora_sft.yaml
+│   │   ├── llama3.yaml
+│   │   └── qwen2_5vl.yaml
+│   ├── merge_lora
+│   │   ├── llama3_full_sft.yaml
+│   │   ├── llama3_gptq.yaml
+│   │   ├── llama3_lora_sft.yaml
+│   │   ├── qwen2_5vl_lora_sft_occ.yaml
+│   │   └── qwen2_5vl_lora_sft.yaml
+│   ├── README.md
+│   ├── README_zh.md
+│   ├── train_full
+│   │   ├── llama3_full_sft.yaml
+│   │   ├── qwen2_5vl_full_sft_occlusion.yaml
+│   │   └── qwen2_5vl_full_sft.yaml
+│   ├── train_lora
+│   │   ├── gpt_lora_sft.yaml
+│   │   ├── llama3_lora_dpo.yaml
+│   │   ├── llama3_lora_eval.yaml
+│   │   ├── llama3_lora_kto.yaml
+│   │   ├── llama3_lora_ppo.yaml
+│   │   ├── llama3_lora_pretrain.yaml
+│   │   ├── llama3_lora_reward.yaml
+│   │   ├── llama3_lora_sft_ds3.yaml
+│   │   ├── llama3_lora_sft_ray.yaml
+│   │   ├── llama3_lora_sft.sh
+│   │   ├── llama3_lora_sft.yaml
+│   │   ├── llama3_preprocess.yaml
+│   │   ├── llama4_lora_sft_ds3.yaml
+│   │   ├── qwen2_5vl_lora_dpo.yaml
+│   │   ├── qwen2_5vl_lora_sft_occ.yaml
+│   │   └── qwen2_5vl_lora_sft.yaml
+│   └── train_qlora
+│       ├── llama3_lora_sft_aqlm.yaml
+│       ├── llama3_lora_sft_awq.yaml
+│       ├── llama3_lora_sft_bnb_npu.yaml
+│       ├── llama3_lora_sft_gptq.yaml
+│       └── llama3_lora_sft_otfq.yaml
+├── kill.sh
+├── LICENSE
+├── Makefile
+├── MANIFEST.in
+├── pyproject.toml
+├── README.md
+├── README_zh.md
+├── requirements.txt
+├── saves
+│   └── Qwen2.5-VL-7B-Instruct
+│       ├── full
+│       │   ├── train_2025-03-19-23-10-19
+│       │   │   ├── llamaboard_config.yaml
+│       │   │   ├── running_log.txt
+│       │   │   └── training_args.yaml
+│       │   ├── train_2025-03-20-00-02-27
+│       │   │   ├── llamaboard_config.yaml
+│       │   │   └── training_args.yaml
+│       │   ├── train_2025-03-20-00-09-42
+│       │   │   ├── llamaboard_config.yaml
+│       │   │   ├── running_log.txt
+│       │   │   └── training_args.yaml
+│       │   └── train_2025-03-20-00-12-33
+│       │       ├── llamaboard_config.yaml
+│       │       ├── running_log.txt
+│       │       └── training_args.yaml
+│       └── lora
+│           ├── train_2025-03-19-23-24-20
+│           │   ├── llamaboard_config.yaml
+│           │   ├── running_log.txt
+│           │   └── training_args.yaml
+│           └── train_2025-03-20-00-12-33
+│               ├── llamaboard_config.yaml
+│               ├── running_log.txt
+│               └── training_args.yaml
+├── scripts
+│   ├── api_example
+│   │   ├── test_image.py
+│   │   └── test_toolcall.py
+│   ├── convert_ckpt
+│   │   ├── llamafy_baichuan2.py
+│   │   ├── llamafy_qwen.py
+│   │   └── tiny_llama4.py
+│   ├── eval_bleu_rouge.py
+│   ├── llama_pro.py
+│   ├── loftq_init.py
+│   ├── pissa_init.py
+│   ├── qwen_omni_merge.py
+│   ├── stat_utils
+│   │   ├── cal_flops.py
+│   │   ├── cal_lr.py
+│   │   ├── cal_mfu.py
+│   │   ├── cal_ppl.py
+│   │   └── length_cdf.py
+│   └── vllm_infer.py
+├── setup.py
+├── src
+│   ├── api.py
+│   ├── llamafactory
+│   │   ├── api
+│   │   │   ├── app.py
+│   │   │   ├── chat.py
+│   │   │   ├── common.py
+│   │   │   ├── __init__.py
+│   │   │   ├── protocol.py
+│   │   │   └── __pycache__
+│   │   │       ├── app.cpython-310.pyc
+│   │   │       ├── app.cpython-312.pyc
+│   │   │       ├── chat.cpython-310.pyc
+│   │   │       ├── chat.cpython-312.pyc
+│   │   │       ├── common.cpython-310.pyc
+│   │   │       ├── common.cpython-312.pyc
+│   │   │       ├── __init__.cpython-310.pyc
+│   │   │       ├── __init__.cpython-312.pyc
+│   │   │       ├── protocol.cpython-310.pyc
+│   │   │       └── protocol.cpython-312.pyc
+│   │   ├── chat
+│   │   │   ├── base_engine.py
+│   │   │   ├── chat_model.py
+│   │   │   ├── hf_engine.py
+│   │   │   ├── __init__.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── base_engine.cpython-310.pyc
+│   │   │   │   ├── base_engine.cpython-312.pyc
+│   │   │   │   ├── chat_model.cpython-310.pyc
+│   │   │   │   ├── chat_model.cpython-312.pyc
+│   │   │   │   ├── hf_engine.cpython-310.pyc
+│   │   │   │   ├── hf_engine.cpython-312.pyc
+│   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   ├── sglang_engine.cpython-310.pyc
+│   │   │   │   ├── sglang_engine.cpython-312.pyc
+│   │   │   │   ├── vllm_engine.cpython-310.pyc
+│   │   │   │   └── vllm_engine.cpython-312.pyc
+│   │   │   ├── sglang_engine.py
+│   │   │   └── vllm_engine.py
+│   │   ├── cli.py
+│   │   ├── data
+│   │   │   ├── collator.py
+│   │   │   ├── converter.py
+│   │   │   ├── data_utils.py
+│   │   │   ├── formatter.py
+│   │   │   ├── __init__.py
+│   │   │   ├── loader.py
+│   │   │   ├── mm_plugin.py
+│   │   │   ├── parser.py
+│   │   │   ├── processor
+│   │   │   │   ├── feedback.py
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── pairwise.py
+│   │   │   │   ├── pretrain.py
+│   │   │   │   ├── processor_utils.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── feedback.cpython-310.pyc
+│   │   │   │   │   ├── feedback.cpython-312.pyc
+│   │   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   │   ├── pairwise.cpython-310.pyc
+│   │   │   │   │   ├── pairwise.cpython-312.pyc
+│   │   │   │   │   ├── pretrain.cpython-310.pyc
+│   │   │   │   │   ├── pretrain.cpython-312.pyc
+│   │   │   │   │   ├── processor_utils.cpython-310.pyc
+│   │   │   │   │   ├── processor_utils.cpython-312.pyc
+│   │   │   │   │   ├── supervised.cpython-310.pyc
+│   │   │   │   │   ├── supervised.cpython-312.pyc
+│   │   │   │   │   ├── unsupervised.cpython-310.pyc
+│   │   │   │   │   └── unsupervised.cpython-312.pyc
+│   │   │   │   ├── supervised.py
+│   │   │   │   └── unsupervised.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── collator.cpython-310.pyc
+│   │   │   │   ├── collator.cpython-312.pyc
+│   │   │   │   ├── converter.cpython-310.pyc
+│   │   │   │   ├── converter.cpython-312.pyc
+│   │   │   │   ├── data_utils.cpython-310.pyc
+│   │   │   │   ├── data_utils.cpython-312.pyc
+│   │   │   │   ├── formatter.cpython-310.pyc
+│   │   │   │   ├── formatter.cpython-312.pyc
+│   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   ├── loader.cpython-310.pyc
+│   │   │   │   ├── loader.cpython-312.pyc
+│   │   │   │   ├── mm_plugin.cpython-310.pyc
+│   │   │   │   ├── mm_plugin.cpython-312.pyc
+│   │   │   │   ├── parser.cpython-310.pyc
+│   │   │   │   ├── parser.cpython-312.pyc
+│   │   │   │   ├── template.cpython-310.pyc
+│   │   │   │   ├── template.cpython-312.pyc
+│   │   │   │   ├── tool_utils.cpython-310.pyc
+│   │   │   │   └── tool_utils.cpython-312.pyc
+│   │   │   ├── template.py
+│   │   │   └── tool_utils.py
+│   │   ├── eval
+│   │   │   ├── evaluator.py
+│   │   │   ├── __init__.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── evaluator.cpython-310.pyc
+│   │   │   │   ├── evaluator.cpython-312.pyc
+│   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   ├── template.cpython-310.pyc
+│   │   │   │   └── template.cpython-312.pyc
+│   │   │   └── template.py
+│   │   ├── extras
+│   │   │   ├── constants.py
+│   │   │   ├── env.py
+│   │   │   ├── __init__.py
+│   │   │   ├── logging.py
+│   │   │   ├── misc.py
+│   │   │   ├── packages.py
+│   │   │   ├── ploting.py
+│   │   │   └── __pycache__
+│   │   │       ├── constants.cpython-310.pyc
+│   │   │       ├── constants.cpython-312.pyc
+│   │   │       ├── env.cpython-310.pyc
+│   │   │       ├── env.cpython-312.pyc
+│   │   │       ├── __init__.cpython-310.pyc
+│   │   │       ├── __init__.cpython-312.pyc
+│   │   │       ├── logging.cpython-310.pyc
+│   │   │       ├── logging.cpython-312.pyc
+│   │   │       ├── misc.cpython-310.pyc
+│   │   │       ├── misc.cpython-312.pyc
+│   │   │       ├── packages.cpython-310.pyc
+│   │   │       ├── packages.cpython-312.pyc
+│   │   │       ├── ploting.cpython-310.pyc
+│   │   │       └── ploting.cpython-312.pyc
+│   │   ├── hparams
+│   │   │   ├── data_args.py
+│   │   │   ├── evaluation_args.py
+│   │   │   ├── finetuning_args.py
+│   │   │   ├── generating_args.py
+│   │   │   ├── __init__.py
+│   │   │   ├── model_args.py
+│   │   │   ├── parser.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── data_args.cpython-310.pyc
+│   │   │   │   ├── data_args.cpython-312.pyc
+│   │   │   │   ├── evaluation_args.cpython-310.pyc
+│   │   │   │   ├── evaluation_args.cpython-312.pyc
+│   │   │   │   ├── finetuning_args.cpython-310.pyc
+│   │   │   │   ├── finetuning_args.cpython-312.pyc
+│   │   │   │   ├── generating_args.cpython-310.pyc
+│   │   │   │   ├── generating_args.cpython-312.pyc
+│   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   ├── model_args.cpython-310.pyc
+│   │   │   │   ├── model_args.cpython-312.pyc
+│   │   │   │   ├── parser.cpython-310.pyc
+│   │   │   │   ├── parser.cpython-312.pyc
+│   │   │   │   ├── training_args.cpython-310.pyc
+│   │   │   │   └── training_args.cpython-312.pyc
+│   │   │   └── training_args.py
+│   │   ├── __init__.py
+│   │   ├── launcher.py
+│   │   ├── model
+│   │   │   ├── adapter.py
+│   │   │   ├── __init__.py
+│   │   │   ├── loader.py
+│   │   │   ├── model_utils
+│   │   │   │   ├── attention.py
+│   │   │   │   ├── checkpointing.py
+│   │   │   │   ├── embedding.py
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── kv_cache.py
+│   │   │   │   ├── liger_kernel.py
+│   │   │   │   ├── longlora.py
+│   │   │   │   ├── misc.py
+│   │   │   │   ├── mod.py
+│   │   │   │   ├── moe.py
+│   │   │   │   ├── packing.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── attention.cpython-310.pyc
+│   │   │   │   │   ├── attention.cpython-312.pyc
+│   │   │   │   │   ├── checkpointing.cpython-310.pyc
+│   │   │   │   │   ├── checkpointing.cpython-312.pyc
+│   │   │   │   │   ├── embedding.cpython-310.pyc
+│   │   │   │   │   ├── embedding.cpython-312.pyc
+│   │   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   │   ├── kv_cache.cpython-310.pyc
+│   │   │   │   │   ├── kv_cache.cpython-312.pyc
+│   │   │   │   │   ├── liger_kernel.cpython-310.pyc
+│   │   │   │   │   ├── liger_kernel.cpython-312.pyc
+│   │   │   │   │   ├── longlora.cpython-310.pyc
+│   │   │   │   │   ├── longlora.cpython-312.pyc
+│   │   │   │   │   ├── misc.cpython-310.pyc
+│   │   │   │   │   ├── misc.cpython-312.pyc
+│   │   │   │   │   ├── mod.cpython-310.pyc
+│   │   │   │   │   ├── mod.cpython-312.pyc
+│   │   │   │   │   ├── moe.cpython-310.pyc
+│   │   │   │   │   ├── moe.cpython-312.pyc
+│   │   │   │   │   ├── packing.cpython-310.pyc
+│   │   │   │   │   ├── packing.cpython-312.pyc
+│   │   │   │   │   ├── quantization.cpython-310.pyc
+│   │   │   │   │   ├── quantization.cpython-312.pyc
+│   │   │   │   │   ├── rope.cpython-310.pyc
+│   │   │   │   │   ├── rope.cpython-312.pyc
+│   │   │   │   │   ├── unsloth.cpython-310.pyc
+│   │   │   │   │   ├── unsloth.cpython-312.pyc
+│   │   │   │   │   ├── valuehead.cpython-310.pyc
+│   │   │   │   │   ├── valuehead.cpython-312.pyc
+│   │   │   │   │   ├── visual.cpython-310.pyc
+│   │   │   │   │   └── visual.cpython-312.pyc
+│   │   │   │   ├── quantization.py
+│   │   │   │   ├── rope.py
+│   │   │   │   ├── unsloth.py
+│   │   │   │   ├── valuehead.py
+│   │   │   │   └── visual.py
+│   │   │   ├── patcher.py
+│   │   │   └── __pycache__
+│   │   │       ├── adapter.cpython-310.pyc
+│   │   │       ├── adapter.cpython-312.pyc
+│   │   │       ├── __init__.cpython-310.pyc
+│   │   │       ├── __init__.cpython-312.pyc
+│   │   │       ├── loader.cpython-310.pyc
+│   │   │       ├── loader.cpython-312.pyc
+│   │   │       ├── patcher.cpython-310.pyc
+│   │   │       └── patcher.cpython-312.pyc
+│   │   ├── __pycache__
+│   │   │   ├── cli.cpython-310.pyc
+│   │   │   ├── cli.cpython-312.pyc
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── __init__.cpython-312.pyc
+│   │   │   ├── launcher.cpython-310.pyc
+│   │   │   └── launcher.cpython-312.pyc
+│   │   ├── third_party
+│   │   │   ├── __init__.py
+│   │   │   └── muon
+│   │   │       ├── __init__.py
+│   │   │       └── muon.py
+│   │   ├── train
+│   │   │   ├── callbacks.py
+│   │   │   ├── dpo
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   │   ├── trainer.cpython-310.pyc
+│   │   │   │   │   ├── trainer.cpython-312.pyc
+│   │   │   │   │   ├── workflow.cpython-310.pyc
+│   │   │   │   │   └── workflow.cpython-312.pyc
+│   │   │   │   ├── trainer.py
+│   │   │   │   └── workflow.py
+│   │   │   ├── __init__.py
+│   │   │   ├── kto
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   │   ├── trainer.cpython-310.pyc
+│   │   │   │   │   ├── trainer.cpython-312.pyc
+│   │   │   │   │   ├── workflow.cpython-310.pyc
+│   │   │   │   │   └── workflow.cpython-312.pyc
+│   │   │   │   ├── trainer.py
+│   │   │   │   └── workflow.py
+│   │   │   ├── ppo
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── ppo_utils.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   │   ├── ppo_utils.cpython-310.pyc
+│   │   │   │   │   ├── ppo_utils.cpython-312.pyc
+│   │   │   │   │   ├── trainer.cpython-310.pyc
+│   │   │   │   │   ├── trainer.cpython-312.pyc
+│   │   │   │   │   ├── workflow.cpython-310.pyc
+│   │   │   │   │   └── workflow.cpython-312.pyc
+│   │   │   │   ├── trainer.py
+│   │   │   │   └── workflow.py
+│   │   │   ├── pt
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   │   ├── trainer.cpython-310.pyc
+│   │   │   │   │   ├── trainer.cpython-312.pyc
+│   │   │   │   │   ├── workflow.cpython-310.pyc
+│   │   │   │   │   └── workflow.cpython-312.pyc
+│   │   │   │   ├── trainer.py
+│   │   │   │   └── workflow.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── callbacks.cpython-310.pyc
+│   │   │   │   ├── callbacks.cpython-312.pyc
+│   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   ├── trainer_utils.cpython-310.pyc
+│   │   │   │   ├── trainer_utils.cpython-312.pyc
+│   │   │   │   ├── tuner.cpython-310.pyc
+│   │   │   │   └── tuner.cpython-312.pyc
+│   │   │   ├── rm
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── metric.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   │   ├── metric.cpython-310.pyc
+│   │   │   │   │   ├── metric.cpython-312.pyc
+│   │   │   │   │   ├── trainer.cpython-310.pyc
+│   │   │   │   │   ├── trainer.cpython-312.pyc
+│   │   │   │   │   ├── workflow.cpython-310.pyc
+│   │   │   │   │   └── workflow.cpython-312.pyc
+│   │   │   │   ├── trainer.py
+│   │   │   │   └── workflow.py
+│   │   │   ├── sft
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── metric.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   │   ├── __init__.cpython-312.pyc
+│   │   │   │   │   ├── metric.cpython-310.pyc
+│   │   │   │   │   ├── metric.cpython-312.pyc
+│   │   │   │   │   ├── trainer.cpython-310.pyc
+│   │   │   │   │   ├── trainer.cpython-312.pyc
+│   │   │   │   │   ├── workflow.cpython-310.pyc
+│   │   │   │   │   └── workflow.cpython-312.pyc
+│   │   │   │   ├── trainer.py
+│   │   │   │   └── workflow.py
+│   │   │   ├── test_utils.py
+│   │   │   ├── trainer_utils.py
+│   │   │   └── tuner.py
+│   │   └── webui
+│   │       ├── chatter.py
+│   │       ├── common.py
+│   │       ├── components
+│   │       │   ├── chatbot.py
+│   │       │   ├── data.py
+│   │       │   ├── eval.py
+│   │       │   ├── export.py
+│   │       │   ├── footer.py
+│   │       │   ├── infer.py
+│   │       │   ├── __init__.py
+│   │       │   ├── __pycache__
+│   │       │   │   ├── chatbot.cpython-310.pyc
+│   │       │   │   ├── chatbot.cpython-312.pyc
+│   │       │   │   ├── data.cpython-310.pyc
+│   │       │   │   ├── data.cpython-312.pyc
+│   │       │   │   ├── eval.cpython-310.pyc
+│   │       │   │   ├── eval.cpython-312.pyc
+│   │       │   │   ├── export.cpython-310.pyc
+│   │       │   │   ├── export.cpython-312.pyc
+│   │       │   │   ├── footer.cpython-310.pyc
+│   │       │   │   ├── footer.cpython-312.pyc
+│   │       │   │   ├── infer.cpython-310.pyc
+│   │       │   │   ├── infer.cpython-312.pyc
+│   │       │   │   ├── __init__.cpython-310.pyc
+│   │       │   │   ├── __init__.cpython-312.pyc
+│   │       │   │   ├── top.cpython-310.pyc
+│   │       │   │   ├── top.cpython-312.pyc
+│   │       │   │   ├── train.cpython-310.pyc
+│   │       │   │   └── train.cpython-312.pyc
+│   │       │   ├── top.py
+│   │       │   └── train.py
+│   │       ├── control.py
+│   │       ├── css.py
+│   │       ├── engine.py
+│   │       ├── __init__.py
+│   │       ├── interface.py
+│   │       ├── locales.py
+│   │       ├── manager.py
+│   │       ├── __pycache__
+│   │       │   ├── chatter.cpython-310.pyc
+│   │       │   ├── chatter.cpython-312.pyc
+│   │       │   ├── common.cpython-310.pyc
+│   │       │   ├── common.cpython-312.pyc
+│   │       │   ├── control.cpython-310.pyc
+│   │       │   ├── control.cpython-312.pyc
+│   │       │   ├── css.cpython-310.pyc
+│   │       │   ├── css.cpython-312.pyc
+│   │       │   ├── engine.cpython-310.pyc
+│   │       │   ├── engine.cpython-312.pyc
+│   │       │   ├── __init__.cpython-310.pyc
+│   │       │   ├── __init__.cpython-312.pyc
+│   │       │   ├── interface.cpython-310.pyc
+│   │       │   ├── interface.cpython-312.pyc
+│   │       │   ├── locales.cpython-310.pyc
+│   │       │   ├── locales.cpython-312.pyc
+│   │       │   ├── manager.cpython-310.pyc
+│   │       │   ├── manager.cpython-312.pyc
+│   │       │   ├── runner.cpython-310.pyc
+│   │       │   └── runner.cpython-312.pyc
+│   │       └── runner.py
+│   ├── llamafactory.egg-info
+│   │   ├── dependency_links.txt
+│   │   ├── entry_points.txt
+│   │   ├── PKG-INFO
+│   │   ├── requires.txt
+│   │   ├── SOURCES.txt
+│   │   └── top_level.txt
+│   ├── train.py
+│   └── webui.py
+├── tests
+│   ├── check_license.py
+│   ├── data
+│   │   ├── processor
+│   │   │   ├── test_feedback.py
+│   │   │   ├── test_pairwise.py
+│   │   │   ├── test_processor_utils.py
+│   │   │   ├── test_supervised.py
+│   │   │   └── test_unsupervised.py
+│   │   ├── test_collator.py
+│   │   ├── test_converter.py
+│   │   ├── test_formatter.py
+│   │   ├── test_loader.py
+│   │   ├── test_mm_plugin.py
+│   │   └── test_template.py
+│   ├── e2e
+│   │   ├── test_chat.py
+│   │   ├── test_sglang.py
+│   │   └── test_train.py
+│   ├── eval
+│   │   └── test_eval_template.py
+│   ├── model
+│   │   ├── model_utils
+│   │   │   ├── test_add_tokens.py
+│   │   │   ├── test_attention.py
+│   │   │   ├── test_checkpointing.py
+│   │   │   ├── test_misc.py
+│   │   │   ├── test_packing.py
+│   │   │   └── test_visual.py
+│   │   ├── test_base.py
+│   │   ├── test_freeze.py
+│   │   ├── test_full.py
+│   │   ├── test_lora.py
+│   │   └── test_pissa.py
+│   ├── train
+│   │   └── test_sft_trainer.py
+│   └── version.txt
+├── train.sh
+├── tree.txt
+├── utils_dev
+│   └── conver_format.py
+├── uv.lock
+└── wandb
+    ├── debug-internal.log -> run-20250920_175859-0z37jqu1/logs/debug-internal.log
+    ├── debug.log -> run-20250920_175859-0z37jqu1/logs/debug.log
+    ├── latest-run -> run-20250920_175859-0z37jqu1
+    ├── run-20250920_004650-vdep2pg0
+    │   ├── files
+    │   │   ├── config.yaml
+    │   │   ├── output.log
+    │   │   ├── requirements.txt
+    │   │   ├── wandb-metadata.json
+    │   │   └── wandb-summary.json
+    │   ├── logs
+    │   │   ├── debug-core.log -> /mnt/localssd/.cache/wandb/logs/core-debug-20250920_004651.log
+    │   │   ├── debug-internal.log
+    │   │   └── debug.log
+    │   ├── run-vdep2pg0.wandb
+    │   └── tmp
+    │       └── code
+    ├── run-20250920_011219-bw3bupiw
+    │   ├── files
+    │   │   ├── config.yaml
+    │   │   ├── output.log
+    │   │   ├── requirements.txt
+    │   │   ├── wandb-metadata.json
+    │   │   └── wandb-summary.json
+    │   ├── logs
+    │   │   ├── debug-core.log -> /mnt/localssd/.cache/wandb/logs/core-debug-20250920_011220.log
+    │   │   ├── debug-internal.log
+    │   │   └── debug.log
+    │   ├── run-bw3bupiw.wandb
+    │   └── tmp
+    │       └── code
+    ├── run-20250920_163918-qpmxuwob
+    │   ├── files
+    │   │   ├── output.log
+    │   │   ├── requirements.txt
+    │   │   └── wandb-metadata.json
+    │   ├── logs
+    │   │   ├── debug-core.log -> /mnt/localssd/.cache/wandb/logs/core-debug-20250920_163918.log
+    │   │   ├── debug-internal.log
+    │   │   └── debug.log
+    │   ├── run-qpmxuwob.wandb
+    │   └── tmp
+    │       └── code
+    ├── run-20250920_170254-t60uyrli
+    │   ├── files
+    │   │   ├── output.log
+    │   │   ├── requirements.txt
+    │   │   └── wandb-metadata.json
+    │   ├── logs
+    │   │   ├── debug-core.log -> /mnt/localssd/.cache/wandb/logs/core-debug-20250920_170254.log
+    │   │   ├── debug-internal.log
+    │   │   └── debug.log
+    │   ├── run-t60uyrli.wandb
+    │   └── tmp
+    │       └── code
+    └── run-20250920_175859-0z37jqu1
+        ├── files
+        │   ├── output.log
+        │   ├── requirements.txt
+        │   └── wandb-metadata.json
+        ├── logs
+        │   ├── debug-core.log -> /mnt/localssd/.cache/wandb/logs/core-debug-20250920_175859.log
+        │   ├── debug-internal.log
+        │   └── debug.log
+        ├── run-0z37jqu1.wandb
+        └── tmp
+            └── code
+
+134 directories, 602 files
